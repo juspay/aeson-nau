@@ -73,8 +73,8 @@ main = defaultMain $ testGroup "text-iso8601"
 
     , testGroup "rejected"
         -- only *one* space is skipped, and it must be followed by a zone
-        [ rejects T.parseUTCTime "2023-06-09T02:35:33  Z"
-        , rejects T.parseUTCTime "2023-06-09T02:35:33 "
+        [ rejects T.parseUTCTime "2023-06-09T02:35:33  Z" "Unexpected ' ', expecting timezone: Z, +HH:MM or -HH:MM"
+        , rejects T.parseUTCTime "2023-06-09T02:35:33 " "Unexpected end-of-input, expecting timezone: Z, +HH:MM or -HH:MM"
 
         -- Y2K years
         , rejects T.parseDay "99-12-12" "expected year with at least 4 digits"

@@ -33,6 +33,7 @@
           };
           devShell.tools = hp: {
             haskell-language-server = null;
+            hlint = null;
           };
           packages = {
             Diff.source = "0.5";
